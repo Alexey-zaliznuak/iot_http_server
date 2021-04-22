@@ -3,7 +3,6 @@ from uuid import uuid1
 from datetime import datetime
 
 def init(this, file, table_name):
-    print(str(file))
     this.file = file
     this.table = table_name
     connect = sqlite3.connect(str(file))
@@ -31,11 +30,11 @@ class ControlElementStorage():
     def __init__(self, file, table_name):
         init(self, file, table_name)
 
-    def write(self, name:str, state:str):
+    def write(self, name:str, put_type:str, value_type:str):
         connect = sqlite3.connect(str(self.file))
         cursor = connect.cursor()
-        exe = f"""INSERT INTO {self.table} (name, UUID, state) VALUES 
-        ("{name}", "{uuid1()}", "{state}")
+        exe = f"""INSERT INTO {self.table} (name, put_type, value_type) VALUES 
+        ('{name}', '{put_type}', '{value_type}')
         """
         cursor.execute(exe)
         connect.commit()
@@ -46,10 +45,11 @@ class ControlElementStorage():
         cursor = connect.cursor()
         
         cursor.execute(f"""
-        CREATE TABLE ControlElements(
-        name TEXT,
-        state TEXT,
-        UUID PRIMARY KEY);
+        CREATE TABLE ControlElements (
+        name       TEXT PRIMARY KEY,
+        put_type   TEXT,
+        value_type TEXT
+        );
         """)
         connect.commit()
         connect.close()
@@ -63,12 +63,12 @@ class ControlElementStorage():
         connect.commit()
         connect.close()
 
-    def delete_element(self, UUID):
+    def delete_elements(self):
         connect = sqlite3.connect(str(self.file))
         cursor = connect.cursor()
 
         cursor.execute(f"""
-        DELETE FROM {self.table} WHERE UUID = {UUID}
+        DELETE FROM {self.table}
         """).fetchall()
 
         connect.commit()
@@ -86,19 +86,16 @@ class ControlElementStorage():
 
         connect.commit()
         connect.close()
-
-    def get_state(self, name):
+    
+    def availability(self, name):
         connect = sqlite3.connect(str(self.file))
         cursor = connect.cursor()
 
-        exe = f"""SELECT state FROM {self.table} where name = '{name}'"""
-        print(exe)
-        return cursor.execute(exe).fetchall()
+        exe = f"""SELECT * FROM {self.table} where name = '{name}'"""
+        return bool(cursor.execute(exe).fetchall())
         connect.close()
+
 
 if __name__ == "__main__":
     db_path = "./data/control-elements-state.db"
     storage = ControlElementStorage(db_path, "ControlElements")
-    
-    storage.write("LED-1", "OFF")
-    storage.write("LED-2", "OFF")

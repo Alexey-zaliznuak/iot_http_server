@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class = "elements-container">
+        <div class="element-container input-bool">
+            <p class="form-label name">LED-1</p>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="LED-1" value="onn" checked = "true">
+                <label class="form-check-label">onn</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="LED-1" value="false">
+                <label class="form-check-label">off</label>
+            </div>
+        </div>
+
+    <div class="element-container input-bool">
+    <p class="form-label name">Led-2</p>
+    <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="Led-2" value="onn" checked = "true">
+            <label class="form-check-label">onn</label>
+        </div>
+            <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="Led-2" value="false">
+            <label class="form-check-label">off</label>
+        </div>
+    </div>
+    
+    <div class="element-container input-text mb-3">
+        <label class="form-label name">Display</label>
+        <input type="text" class="form-control" placeholder="Set value of Display text">
+    </div>
+
+    <div class="element-container input-text mb-3">
+        <label class="form-label name">time-display</label>
+        <input type="text" class="form-control" placeholder="Set value of time-display text">
+    </div>
+
+    <div class = "element-container input-range">
+        <label class="form-label name">Beacon</label>
+        <label class="form-label value-max"></label>
+        <input type="range" class="form-range" min="0" max="5" step = "0.01">
+    </div>
+
+    <div class = "element-container input-range">
+        <label class="form-label name">rgb-led</label>
+        <label class="form-label value-max"></label>
+        <input type="range" class="form-range" min="0" max="256" step = "1">
+    </div>
+
+    <div class = "element-container output">
+        <label class="form-label element-name">GAS-sensor</label>
+        <label class="form-label">:</label>
+        <label class="form-label value">412</label>
+    </div>
+
+    <div class = "element-container output">
+        <label class="form-label element-name">SUN-sensor</label>
+        <label class="form-label">:</label>
+        <label class="form-label value">0.5</label>
+</body>
+</html>

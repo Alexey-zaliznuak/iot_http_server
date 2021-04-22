@@ -5,21 +5,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type = "text/css" href="/static/css/style.css">
-    <script src="/static/js/new_script.js" defer></script>
-    <title>Страдания</title>
+    <link href="./static/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <script src="/static/js/script.js"></script>
+    <script src="/static/js/get_value.js" defer></script>
+    <title>Element controller</title>
 </head>
-<body>
-    <div class="menu">
-    <container>
-        <a href = "/"><span class = "option menu_text">Меню</span></a>
-        <a href = "/about"><span class = "option menu_text">Список запросов</span></a>
-        <div class = "time menu_text">00:00</div>
-    </container>
-    </div>
-
-    <span class="hello_span">Управление:</span>
-    <div><span class = "LED-1">LED-1:</span><span id = "LED-1" class = "control_element led-option option_text">Get data...</span></div>
-    <div><span class = "LED-2">LED-2:</span><span id = "LED-2" class = "control_element led-option option_text">Get data...</span></div>
-
+<body>    
+        {{elements}}
 </body>
 </html>

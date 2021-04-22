@@ -1,13 +1,19 @@
-from flask import  Flask, render_template, request, redirect, url_for, flash, make_response, session
+from flask import  Flask, render_template, request
 from control_elemets_storage import ControlElementStorage
-import datetime
-
+from elements import *
 app = Flask(__name__)
-app.permanent_session_lifetime = datetime.timedelta(days=1)
-app.secret_key = "644540709"
+
+global values
+values = {}
+
+#element(name = "BEACON", value_type = "range 0 1023 1", put_type = "input"),
+#element(name = "DISPLAY", value_type = "text", put_type = "input")
 
 db_path = "./data/control-elements-state.db"
 elements_manager = ControlElementStorage(db_path,  "ControlElements")
+
+storage = init()
+html = storage.get_elements_html()
 
 @app.after_request
 def add_header(response):
@@ -15,20 +21,27 @@ def add_header(response):
     response.headers['Cache-Control'] = 'public, max-age=0'
     return response
 
+@app.route("/content")
+def get_elements_content():
+    return html
+
 @app.route("/")
-def about():
+def index():
     return render_template("index.html")
 
-@app.route("/SetState/<obj>/<state>/", methods = ["GET"])
-def chage_state(obj, state):
-    elements_manager.update_element(obj, state)
+@app.route("/State/", methods = ["GET"])
+def set_state():
+    global values
+    print(values)
+    return values
+
+@app.route("/State/", methods = ["POST"])
+def get():
+    global values
+    values = request.get_json()
+    print(values)
     return "200"
 
-@app.route("/GetState/<obj>")
-def get_state(obj):
-    response = elements_manager.get_state(obj)[0][0]
-    return response
-    #actuators = светодиоды, реле и т.д. (от англ. action = действие)
-    #sensors = кнопки, 
 if __name__ == "__main__":
-    app.run(host="192.168.126.174", port="5000")
+    app.run(host="192.168.1.29", port="5000", debug=True)
+    #host="192.168.126.174", port="5000"
