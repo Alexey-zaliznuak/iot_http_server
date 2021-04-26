@@ -1,0 +1,16 @@
+{
+    "ProductionConfig" : {
+        "DEBUG" : false,
+        "GET-IP": false,
+        "TESTING" : false,
+        "CSRF_ENABLED" : true,
+        "SECRET_KEY": "MY-SECRET-KEY"
+    },
+    "TestConfig" : {
+        "DEBUG" : true,
+        "GET-IP": true,
+        "TESTING" : true,
+        "CSRF_ENABLED" : false,
+        "SECRET_KEY": "MY-SECRET-KEY"
+    }
+}
