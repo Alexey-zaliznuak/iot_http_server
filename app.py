@@ -4,7 +4,6 @@ from socket import gethostbyname, gethostname
 from elements import *
 from json import load
 from os import environ, system
-import asyncio
 
 with open("settings.json", "r") as f:
     settings = load(f)
@@ -14,12 +13,11 @@ app = Flask(__name__)
 
 db_path = "./data/control-elements-state.db"
 elements_manager = ControlElementStorage(db_path,  "ControlElements")
-
-global values, output_elements_values
 storage = init()
-html = storage.get_elements_html()
 
+html = storage.get_elements_html()
 values = {}
+history = {}
 output_elements_values = {"humidity-sensor": "30", "gas-sensor" : "400", "temperature" : "20°C"}
 
 @app.after_request
@@ -49,15 +47,15 @@ def get():
     print(values)
     return "200"
 
-@app.route("/State/output_elements", methods = ["GET"])
+@app.route("/State/output_elements", methods = ["POST"])
 def get_outputs_elements():
     global output_elements_values
     values = request.get_json()
     print(values)
     return "200"
 
-async def main():
+def main():
     app.run(IP, port = 5000, debug = True)
-
+    
 if __name__ == "__main__":
-    asyncio.run(main())
+    main()

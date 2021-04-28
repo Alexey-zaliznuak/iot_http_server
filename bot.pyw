@@ -3,6 +3,7 @@ from keyboard import is_pressed
 from random import randint
 from socket import gethostbyname, gethostname
 from time import sleep
+from json import load, dump
 import asyncio
 
 #http://t.me/Alex_Zaliznuak_bot
@@ -18,9 +19,9 @@ commands = [
     "/random a b - random num(a-b) default 1-6",
 ]
 
-chats_id = [
-1513636690,
-]
+with open("settings.json", "r") as f:
+    chats_id = load(f)["ChatsID"]
+    print(chats_id)
 
 keyboard_ossements = telebot.types.ReplyKeyboardMarkup(True)
 keyboard_ossements.row('/url')
@@ -37,10 +38,17 @@ def invite(message):
     bot.send_message(message.chat.id, 'http://t.me/Alex_Zaliznuak_bot')
 
 @bot.message_handler(commands=['init'])
-def game_random(message):
-    global chats_id
-    chats_id += [message.chat.id]
-    bot.send_message(message.chat.id, f"Succesfull", reply_markup = None)
+def init_id(message):
+    with open("settings.json", "r") as f:
+        data = load(f)
+    # bot.send_message(message.chat.id, f"Succesfull", reply_markup = None)
+    if message.chat.id not in data["ChatsID"]:
+        with open("settings.json", "w") as f:
+            data["ChatsID"] += [message.chat.id]
+            dump(data, f, indent = 4)
+        bot.send_message(message.chat.id, f"init was succesfull", reply_markup = None)
+    else:
+        bot.send_message(message.chat.id, f"You was init", reply_markup = None)
 
 @bot.message_handler(commands=['random'])
 def game_random(message):
@@ -54,11 +62,12 @@ def game_random(message):
     global IP
     IP = "http://" + gethostbyname(gethostname()) + ":5000/"
     for id_ in chats_id:
-        bot.send_message(message.chat.id, IP, reply_markup = keyboard_ossements)
+        bot.send_message(id_, IP, reply_markup = keyboard_ossements)
 
 def main():
     IP = gethostbyname(gethostname())
     while not is_pressed("Esc"):
+        bot.send_message(1513636690, IP)
         bot.polling(none_stop = True)
 
 if __name__ == "__main__":

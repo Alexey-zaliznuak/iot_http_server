@@ -10,11 +10,10 @@ async function seet_state(id, state) {
 }
 function update() {
     let values = {}
-    document.querySelectorAll(".element-container").forEach(element => {
+    document.querySelectorAll(".element").forEach(element => {
         if (element.classList[1] == "output") {
-            let name = element.querySelector(".element-name").innerHTML
+            let name = element.querySelector(".name").innerHTML
             let value = element.querySelector(".value").innerHTML
-            values[name] = value
         }
         else if(element.classList[1] == "input-bool") {
             let name = element.querySelector(".name").innerHTML
@@ -27,12 +26,12 @@ function update() {
             values[name] = value
         }
         else if(element.classList[1] == "input-range") {
-                let name = element.querySelector(".name").innerHTML
-                let value = element.querySelector(".form-range").value
-                values[name] = value
+            let name = element.querySelector(".name").innerHTML
+            let value = element.querySelector(".form-range").value
+            values[name] = value
 
-                let max = element.querySelector(".form-range").max
-                element.querySelector(".value-max").innerHTML = `${value} / ${max}`
+            let max = element.querySelector(".form-range").max
+            element.querySelector(".value-max").innerHTML = `${value} / ${max}`
         }})
     if (JSON.stringify(old_values) != JSON.stringify(values)) {
         //console.log("new_values",values, old_values)
@@ -42,7 +41,7 @@ function update() {
 }
 async function set_state(values) {
     //console.log(element)
-    console.log(values)
+    //console.log(values)
     let p = await fetch(`/State/`, {
         method: 'POST', 
         headers: {

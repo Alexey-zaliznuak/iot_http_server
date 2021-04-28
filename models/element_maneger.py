@@ -9,6 +9,13 @@ class elements_maneger():
 
         names = []
         for element in elements:
+            if type(element) == list:
+                for el in element:
+                    if el.name in names:
+                        raise ValueError(f"name {el.name} was used")
+                    else:
+                        names += [el.name]
+                continue
             if element.name in names:
                 raise ValueError(f"name {element.name} was used")
                 break
@@ -23,8 +30,21 @@ class elements_maneger():
     def get_elements_html(self):
         html = "<container>\n"
         for element in self.elements:
-            html += element.get_html() + "\n"
+            if type(element) == list:
+                html += "<div class = 'elements-group'>"
+                for el in element:
+                    if element.index(el) != len(element) - 1:
+                        html += el.get_html(group = True) + "\n" + "<p></p>"
+                    else:
+                        html += el.get_html(group = True) 
+                html += "</div>" + "\n"
+            else:
+                html += element.get_html() + "\n"
         return html
     def add_elements(self):
         for element in self.elements:
+            if type(element) == list:
+                for el in element:
+                    el.add()
+                continue
             element.add()

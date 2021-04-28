@@ -1,16 +1,19 @@
 {
-    "ProductionConfig" : {
-        "DEBUG" : false,
+    "ProductionConfig": {
+        "DEBUG": false,
         "GET-IP": false,
-        "TESTING" : false,
-        "CSRF_ENABLED" : true,
+        "TESTING": false,
+        "CSRF_ENABLED": true,
         "SECRET_KEY": "MY-SECRET-KEY"
     },
-    "TestConfig" : {
-        "DEBUG" : true,
+    "TestConfig": {
+        "DEBUG": true,
         "GET-IP": true,
-        "TESTING" : true,
-        "CSRF_ENABLED" : false,
+        "TESTING": true,
+        "CSRF_ENABLED": false,
         "SECRET_KEY": "MY-SECRET-KEY"
-    }
+    },
+    "ChatsID": [
+        1513636690
+    ]
 }

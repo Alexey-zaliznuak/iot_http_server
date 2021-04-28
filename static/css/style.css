@@ -4,15 +4,16 @@
     --card-border-color: #e1e4e8;
 }
 
-.element-container {
+.element-container, .elements-group {
     margin-top: 10%;
     margin: 5% 11%; 
     padding: 1.5rem;
-    max-height: 120px;
     border: solid #dee2e6;
     border-width: 1px;
-    border-top-left-radius: .25rem;
-    border-top-right-radius: .25rem;
+    border-radius: .25rem;
+}
+.element-container {
+    max-height: 120px;
 }
 
 .output {
@@ -31,4 +32,8 @@ a {
     color: #dee2e6;
     text-decoration: none;
     font-size:25px;
+}
+
+.name {
+    margin-right: 1.0em;
 }
