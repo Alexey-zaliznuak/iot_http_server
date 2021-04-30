@@ -30,6 +30,10 @@ def add_header(response):
 def get_elements_content():
     return html
 
+@app.route("/output_values", methods = ["GET"])
+def output_values():
+    return output_elements_values
+
 @app.route("/")
 def index():
     return render_template("index.html")
