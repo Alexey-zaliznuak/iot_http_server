@@ -5,9 +5,6 @@ from elements import *
 from json import load
 from os import environ, system
 
-with open("settings.json", "r") as f:
-    settings = load(f)
-
 IP = gethostbyname(gethostname())
 app = Flask(__name__)
 
