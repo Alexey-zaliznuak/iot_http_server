@@ -29,10 +29,38 @@ function update() {
             let name = element.querySelector(".name").innerHTML
             let value = element.querySelector(".form-range").value
             values[name] = value
+        }    
+    })
 
-            let max = element.querySelector(".form-range").max
-            element.querySelector(".value-max").innerHTML = `${value} / ${max}`
-        }})
+    document.querySelectorAll(".special-element-group").forEach(element => {
+        let special_values = {}
+        let element_name = element.querySelector(".special-name").innerHTML
+        element.querySelectorAll(".special-element").forEach(element => {
+            if(element.classList[1] == "input-bool") {
+                let name = element.querySelector(".name").innerHTML
+                let value = element.querySelector(".form-check-input").checked
+                special_values[name] = value
+            }
+            else if(element.classList[1] == "input-text") {
+                let name = element.querySelector(".name").innerHTML
+                let value = element.querySelector(".form-control").value
+                special_values[name] = value
+            }
+            else if(element.classList[1] == "input-range") {
+                let name = element.querySelector(".name").innerHTML
+                let value = element.querySelector(".form-range").value
+                special_values[name] = value
+            }
+        })
+        values[element_name] = special_values
+    })
+
+    document.querySelectorAll(".input-range").forEach(element => {
+        let max = element.querySelector(".form-range").max
+        let value = element.querySelector(".form-range").value
+        element.querySelector(".value-max").innerHTML = `${value} / ${max}`
+    })
+
     if (JSON.stringify(old_values) != JSON.stringify(values)) {
         //console.log("new_values",values, old_values)
         old_values = values
@@ -40,8 +68,7 @@ function update() {
     }
 }
 async function set_state(values) {
-    //console.log(element)
-    //console.log(values)
+    console.log(values)
     let p = await fetch(`/State/`, {
         method: 'POST', 
         headers: {
@@ -57,6 +84,6 @@ async function set_state(values) {
 function updates() {
     setInterval(() => {
     update()
-}, 50);}
+}, 100);}
 
 updates()

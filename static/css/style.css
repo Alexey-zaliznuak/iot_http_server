@@ -4,7 +4,7 @@
     --card-border-color: #e1e4e8;
 }
 
-.element-container, .elements-group {
+.element-container, .elements-group, .special-element-group {
     margin-top: 10%;
     margin: 5% 11%; 
     padding: 1.5rem;
@@ -36,4 +36,8 @@ a {
 
 .name {
     margin-right: 1.0em;
+}
+.special-name, .bool-name {
+    margin-right: 1.0em;
+    margin-bottom: 0;
 }

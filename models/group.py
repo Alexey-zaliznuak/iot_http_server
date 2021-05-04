@@ -1,6 +1,6 @@
 from control_elemets_storage import ControlElementStorage
-from .get_templates import get_templates
 from models.elements_maneger import elements_maneger
+from models.element import element as element_class
 
 class group():
     def __init__(self, elements:list):
@@ -8,10 +8,16 @@ class group():
     def get_html(self):
         html = "<div class = 'elements-group'>"
         for element in self.elements:
-            if self.elements.index(element) != len(self.elements) - 1:
-                html += element.get_html(group = True) + "\n" + "<p></p>"
+            if type(element) != element_class:
+                if self.elements.index(element) != len(self.elements) - 1:
+                    html += element.get_html() + "\n" + "<p></p>"
+                else:
+                    html += element.get_html() 
             else:
-                html += element.get_html(group = True) 
+                if self.elements.index(element) != len(self.elements) - 1:
+                    html += element.get_html(group = True) + "\n" + "<p></p>"
+                else:
+                    html += element.get_html(group = True) 
         html += "</div>" + "\n"
         return html
     def get_elements(self):
