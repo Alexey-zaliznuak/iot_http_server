@@ -1,21 +1,17 @@
 let old_values = {}
 
-async function seet_state(id, state) {
-    //console.log(element)
-    let p = await fetch(`/State/${id}/${state}`, {method: 'post'})
-    const promise = await (await fetch(`/State/${id}`, {method: 'get'})).text()
-    Update_button(promise, id)
-    //then(req => req.text().then((text) => hello(text, id)))
+async function get_state() {
+    const promise = await( await(await ( fetch(`/output_values`, {method: 'get'}))).json())
     return promise
 }
 function update() {
     let values = {}
+    let output_values
+    get_state().then(element => {output_values = element
+    //console.log(output_values)
+
     document.querySelectorAll(".element").forEach(element => {
-        if (element.classList[1] == "output") {
-            let name = element.querySelector(".name").innerHTML
-            let value = element.querySelector(".value").innerHTML
-        }
-        else if(element.classList[1] == "input-bool") {
+        if(element.classList[1] == "input-bool") {
             let name = element.querySelector(".name").innerHTML
             let value =element.querySelector(".form-check-input").checked
             values[name] = value
@@ -61,14 +57,18 @@ function update() {
         element.querySelector(".value-max").innerHTML = `${value} / ${max}`
     })
 
+    document.querySelectorAll(".output-element").forEach(element => {
+        element.querySelector(".value").innerHTML = output_values[element.querySelector(".name").innerHTML]
+    })
+
     if (JSON.stringify(old_values) != JSON.stringify(values)) {
         //console.log("new_values",values, old_values)
         old_values = values
         set_state(values)
-    }
+    }})
 }
 async function set_state(values) {
-    console.log(values)
+    //console.log(values)
     let p = await fetch(`/State/`, {
         method: 'POST', 
         headers: {
@@ -83,7 +83,7 @@ async function set_state(values) {
 
 function updates() {
     setInterval(() => {
-    update()
-}, 100);}
+        update()
+}, 500);}
 
 updates()

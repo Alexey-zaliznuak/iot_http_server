@@ -3,15 +3,12 @@ from models.elements_maneger import elements_maneger
 from models.element import element as element_class
 
 class special_element():
-    def __init__(self, elements:list, name:str, value_type = "list"):
+    def __init__(self, elements:list, name:str):
         self.elements = elements
-        self.value_type = value_type
         self.name = name
-        if self.value_type not in ["list", "dict", "str"]:
-            raise ValueError(f"{value_type} not in ['list', 'dict', 'str']")
-
+       
     def get_html(self):
-        html = f"<div class = 'special-element-group' value_type = {str(self.value_type)} name = {self.name}>"
+        html = f"<div class = 'special-element-group' name = {self.name}>"
         html += f'<p><label class="form-label special-name">{self.name}</label></p>'
         for element in self.elements:
             if type(element) != element_class:

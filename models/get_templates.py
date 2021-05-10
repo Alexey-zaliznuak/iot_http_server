@@ -90,7 +90,8 @@ class get_templates():
             element_container = ""
 
         return f"""
-        <{block} class="{element} output mb-3 {element_container}">
+        <{block} class="{element} output-element mb-3 {element_container}">
             <label class="form-label name">{self.name}</label>
+            <label class="form-label">:</label>
             <label class="form-label value"><..></label>
         </{block}>""" 
