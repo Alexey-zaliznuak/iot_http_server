@@ -1,4 +1,4 @@
-from control_elemets_storage import ControlElementStorage
+from models.control_elemets_storage import ControlElementStorage
 from .get_templates import get_templates
 
 class elements_maneger():
@@ -19,6 +19,3 @@ class elements_maneger():
             html += element.get_html() + "\n"
         return html
         
-    def add_elements(self):
-        for element in self.elements:
-            element.add()

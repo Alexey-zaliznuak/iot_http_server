@@ -37,6 +37,7 @@ class ControlElementStorage():
         ('{name}', '{put_type}', '{value_type}')
         """
         cursor.execute(exe)
+        print("complete")
         connect.commit()
         connect.close()
 
@@ -54,14 +55,6 @@ class ControlElementStorage():
         connect.commit()
         connect.close()
 
-    def clear(self):
-        connect = sqlite3.connect(str(self.file))
-        cursor = connect.cursor()
-
-        cursor.execute(f"DELETE FROM {self.table}").fetchall()
-
-        connect.commit()
-        connect.close()
 
     def delete_elements(self):
         connect = sqlite3.connect(str(self.file))
