@@ -8,8 +8,8 @@ class special_element():
         self.name = name
        
     def get_html(self):
-        html = f"<div class = 'special-element-group' name = {self.name}>"
-        html += f'<p><label class="form-label special-name">{self.name}</label></p>'
+        html = f"<div class = 'special-element-group' name = '{self.name}''>"
+        html += f"<p><label class='special-name form-label'>{self.name}</label></p>"
         for element in self.elements:
             if type(element) != element_class:
                 if self.elements.index(element) != len(self.elements) - 1:

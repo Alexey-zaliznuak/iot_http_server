@@ -1,8 +1,9 @@
 from models.control_elemets_storage import ControlElementStorage
 from models.values_manager import ValuesManeger
-from flask import  Flask, render_template, request
+from flask import  Flask, render_template, request, make_response, jsonify
 from elements import *
 from socket import gethostbyname, gethostname
+from time import time, perf_counter, sleep
 from json import load
 from os import environ, system
 
@@ -12,8 +13,9 @@ application = Flask(__name__)
 db_path = "./data/control-elements-state.db"
 elements_manager = ControlElementStorage(db_path,  "ControlElements")
 storage = init()
-ValuesManeger = ValuesManeger()
+ValuesManeger = ValuesManeger(perf_counter())
 
+global values
 html = storage.get_elements_html()
 output_elements_values = {"humidity-sensor": "30", "gas-sensor" : "400", "temperature" : "20°C"}
 values = {}
@@ -35,12 +37,15 @@ def index():
 
 @application.route("/input_elements/state/", methods = ["GET"])
 def set_state():
-    return values
+    global values
+    values = ValuesManeger.get_all()
+    print(values)
+    return jsonify(values)
 
 @application.route("/input_elements/state/", methods = ["POST"])
 def get():
+    global values
     values = request.get_json()
-    print(values)
     ValuesManeger.write(values)
     return "200"
 
@@ -52,19 +57,18 @@ def output_values():
 def get_outputs_elements():
     global output_elements_values
     values = request.get_json()
-
     ValuesManeger.write(values)
     return "200"
 
-@application.route("/graphics/<name>")
+@application.route("/graphics/<name>/")
 def get_graphs(name):
     graphic_values = ValuesManeger.get(name)
-    return graphic_values
+    return jsonify(graphic_values)
 
-@application.route("/graphsics")
+@application.route("/graphics")
 def graphs():
     name = request.args['name']
-    return render_template("graphs.html")
+    return render_template("graphs.html", name = name)
 
 def main():
     application.run(IP, port = 5000, debug = True)

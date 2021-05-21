@@ -20,8 +20,8 @@ class get_templates():
             element_container = ""
 
         return f"""
-        <{block} class="{element} input-bool {element_container}">
-            <{p} class="name bool-name">{self.name}</{p}>
+        <{block} class="{element} input-bool {element_container}" put_type = '{self.put_type}'>
+            <{p} class="name bool-name" put_type = '{self.put_type}'>{self.name}</{p}>
             <div class="form-check form-check-inline">
                 <input class="form-check-input" type="radio" name="{self.name}" value="on" checked = "true">
                 <label class="form-check-label">on</label>
@@ -50,8 +50,8 @@ class get_templates():
         max_value =  val[2]
         step_value = val[3] 
         return f"""
-        <{block} class = "{element} input-range {element_container}">
-            <label class="form-label name">{self.name}</label>
+        <{block} class = "{element} input-range {element_container}" put_type = '{self.put_type}'>
+            <label class="name form-label" put_type = '{self.put_type}'>{self.name}</label>
             <label class="form-label value-max"></label>
             <input type="range" class="form-range" min="{min_value}" max="{max_value}" step = "{step_value}">
         </{block}>
@@ -71,8 +71,8 @@ class get_templates():
             block = "container"
 
         return f"""
-        <{block} class="{element} input-text mb-3 {element_container}">
-            <label class="form-label name">{self.name}</label>
+        <{block} class="{element} input-text mb-3 {element_container}" put_type = '{self.put_type}'>
+            <label class="name form-label" put_type = '{self.put_type}'>{self.name}</label>
             <input type="text" class="form-control" placeholder="Set text for {self.name}">
         </{block}>""" 
     
@@ -90,8 +90,8 @@ class get_templates():
             element_container = ""
 
         return f"""
-        <{block} class="{element} output-element mb-3 {element_container}">
-            <label class="form-label name">{self.name}</label>
+        <{block} class="{element} output-element mb-3 {element_container}" put_type = '{self.put_type}'>
+            <label class="name form-label" put_type = '{self.put_type}'>{self.name}</label>
             <label class="form-label">:</label>
             <label class="form-label value"><..></label>
         </{block}>""" 

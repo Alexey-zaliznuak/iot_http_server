@@ -22,6 +22,6 @@ class element():
                 html = get_templates(self.name, self.put_type, self.value_type).input_range_html(group, special)
             if self.value_type == "text":
                 html = get_templates(self.name, self.put_type, self.value_type).input_text_html(group, special)
-        if self.put_type == "output":
+        if self.put_type.startswith("output"):
             html = get_templates(self.name, self.put_type, self.value_type).output_html(group, special)
         return html
