@@ -52,6 +52,7 @@ class get_templates():
         return f"""
         <{block} class = "{element} input-range {element_container}" put_type = '{self.put_type}'>
             <label class="name form-label" put_type = '{self.put_type}'>{self.name}</label>
+            <label class="form-label v_type">{self.value_type.split(" ")[0][5:] + "  "}</label>
             <label class="form-label value-max"></label>
             <input type="range" class="form-range" min="{min_value}" max="{max_value}" step = "{step_value}">
         </{block}>
@@ -89,9 +90,15 @@ class get_templates():
             block = "container"
             element_container = ""
 
+        if self.value_type.startswith("int"):
+            d = self.value_type.split(" ")[0][3:]
+        elif self.value_type.startswith("text"):
+            d = self.value_type.split(" ")[0][4:]
+
         return f"""
         <{block} class="{element} output-element mb-3 {element_container}" put_type = '{self.put_type}'>
             <label class="name form-label" put_type = '{self.put_type}'>{self.name}</label>
+            <label class="form-label">{d}</label>
             <label class="form-label">:</label>
             <label class="form-label value"><..></label>
         </{block}>""" 

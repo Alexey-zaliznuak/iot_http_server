@@ -1,31 +1,40 @@
 from datetime import datetime
+from models.special_element import special_element as special
 from time import perf_counter, sleep
 import json
 
-def clear(old_values, new_values):
-    try:
-        keys = list(old_values[0].keys())
-    except IndexError:
-        return new_values
-    else:
-        for key in keys:
-            if key == "time": 
-                continue
-            last_key = None
-            for val in old_values:
-                try:
-                    last_key = val[str(key)]
-                except KeyError:
-                    pass
+def clear(old_values, new_values, keys):
+    print("keys")
+    for key in keys:
+        key = key[8:]
+        if key == "time": 
+            continue
+        last_key = None
+        for val in old_values:
+            try:
+                last_key = val[str(key)]
+            except KeyError:
+                pass
+        try:
+            print(last_key, new_values[key])
             if last_key == new_values[key]:
                 new_values.pop(key)
-    return new_values
+        except KeyError as Exception:
+            print(Exception)
+
+    
+    if len(new_values.items()) != 1:
+        return new_values
+    else:
+        return None
 
 class ValuesManeger():
-    def __init__(self, start_time, new = True,): 
+    def __init__(self, start_time, keys, all_elements): 
+        self.keys = keys
         self.file = "./data/data_file.json"
         self.start_time = perf_counter()
-        if not new:
+        self.all_elements = all_elements
+        if not True:
             try:   
                 with open(self.file, "r") as read_file:
                     data = json.load(read_file)
@@ -36,6 +45,14 @@ class ValuesManeger():
         else:
             with open(self.file, "w") as write_file:
                 json.dump([], write_file, indent = 4)
+        new_values = {}
+        for key in keys:
+            if key.startswith("special"):
+                new_values[key[8:]] = {}
+            else:
+                new_values[key[8:]] = "null"
+        print("new_values =", new_values)
+        self.write(new_values)
 
     def write(self, *args):
         if len(args) == 1:
@@ -46,13 +63,15 @@ class ValuesManeger():
         time = datetime.now()
 
         elements = elments
-        print("value:",args)
-        elements["time"] = f"{time.hour}/{time.minute}/{time.second}/{time.microsecond%10000}"
+        #rint(elements)
+        # print("value:",args)
+        # elements["time"] = f"{time.hour}/{time.minute}/{time.second}{time.microsecond%10000}"
         elements["time"] = f"{time.hour}:{time.minute}:{time.second}"
 
         with open(self.file, "r") as read_file:
             data = json.load(read_file)
-            data += [clear(data, elements)]
+            if clear(data, elements, self.keys) is not None:
+                data += [clear(data, elements, self.keys)]
         
         with open(self.file, "w") as write_file:
             json.dump(data, write_file, indent = 4)
@@ -62,29 +81,39 @@ class ValuesManeger():
         with open(self.file, "r") as read_file:
             data = json.load(read_file)
         
-        print(data[0][name], type(data[0][name]))
-        
         if type(data[0][name]) == str: 
             for element in data:    
                 try:
-                    value += [[element["time"],int(element[name])]]
+                    if [[element["time"],int(element[name])]] != {}:
+                        value += [[element["time"],int(element[name])]]
                 except KeyError:
+                    pass
+                except ValueError:
                     pass
             return list(value)
         elif type(data[0][name]) == dict:
             value = [["Time"]]
-            value[0] += [el for el in dict(data[0][name]).keys()]
+            name = "RGB-LED"
+            names = []
+            for el in self.all_elements:
+                if type(el) == special:
+                    if el.name == name:
+                        for el in el.elements:
+                            names += [el.name]
+
+            value[0] += names
+
             for element in data:
                 try:
                     time = element["time"]
                     element = element[name]
-
                     v = []
                     v += [time]
                     for el in dict(element).keys():
                         v += [int(element[el])]
-
-                    value += [v]
+                    
+                    if len(v) >1:
+                        value += [v]
                 except KeyError:
                     pass
             return list(value)
@@ -99,5 +128,4 @@ class ValuesManeger():
             for key in dict(v).keys():
                 if key != "time":
                     new_value[key] = v[key]
-            value += [new_value]
-        return value
+        return new_value

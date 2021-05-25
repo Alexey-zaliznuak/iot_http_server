@@ -13,11 +13,12 @@ application = Flask(__name__)
 db_path = "./data/control-elements-state.db"
 elements_manager = ControlElementStorage(db_path,  "ControlElements")
 storage = init()
-ValuesManeger = ValuesManeger(perf_counter())
+
+ValuesManeger = ValuesManeger(perf_counter(), keys, all_elements)
 
 global values
 html = storage.get_elements_html()
-output_elements_values = {"humidity-sensor": "30", "gas-sensor" : "400", "temperature" : "20°C"}
+output_elements_values = '{"humidity-sensor": "30", "gas-sensor" : "400", "temperature" : "20"}'
 values = {}
 history_values = {}
 
@@ -39,7 +40,6 @@ def index():
 def set_state():
     global values
     values = ValuesManeger.get_all()
-    print(values)
     return jsonify(values)
 
 @application.route("/input_elements/state/", methods = ["POST"])
@@ -51,13 +51,19 @@ def get():
 
 @application.route("/output_elements/state/", methods = ["GET"])
 def output_values():
-    return output_elements_values
+    response = {}
+    all_data = ValuesManeger.get_all()
+    for key in output_elements_keys:        
+        response[key] = all_data[key]
+    return response
     
 @application.route("/output_elements/state/", methods = ["POST"])
 def get_outputs_elements():
     global output_elements_values
     values = request.get_json()
-    ValuesManeger.write(values)
+    for v in values.items():
+        v = {v[0]:v[1]}
+        ValuesManeger.write(v)
     return "200"
 
 @application.route("/graphics/<name>/")

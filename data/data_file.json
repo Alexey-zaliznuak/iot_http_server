@@ -1,11 +1,21 @@
 [
     {
-        "LIGHTDISPLAY": "128",
-        "RGB-LED": {
-            "Red": "128",
-            "Green": "128",
-            "Blue": "128"
-        },
-        "time": "16:23:59"
+        "LIGHTDISPLAY": "null",
+        "RGB-LED": {},
+        "humidity": "null",
+        "temperature": "null",
+        "time": "18:37:54"
+    },
+    {
+        "temperature": 23,
+        "time": "18:37:56"
+    },
+    {
+        "humidity": 558,
+        "time": "18:37:56"
+    },
+    {
+        "humidity": 508,
+        "time": "18:38:12"
     }
 ]

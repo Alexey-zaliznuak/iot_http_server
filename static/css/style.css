@@ -37,7 +37,12 @@ a {
 .value {
     margin-left: 1.0em;
 }
+
 .special-name, .bool-name {
     margin-right: 1.0em;
     margin-bottom: 0;
+}
+
+.v_type {
+    margin-right: 1.0em;
 }
