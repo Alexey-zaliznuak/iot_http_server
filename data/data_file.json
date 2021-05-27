@@ -1,21 +1,687 @@
 [
     {
         "LIGHTDISPLAY": "null",
+        "LED": "null",
         "RGB-LED": {},
         "humidity": "null",
         "temperature": "null",
-        "time": "18:37:54"
+        "time": "13:47:27"
     },
     {
-        "temperature": 23,
-        "time": "18:37:56"
+        "DISPLAY": "",
+        "LED": "128",
+        "RGB-LED": {
+            "Red": "128",
+            "Green": "128",
+            "Blue": "128"
+        },
+        "time": "13:47:30"
     },
     {
-        "humidity": 558,
-        "time": "18:37:56"
+        "DISPLAY": "",
+        "LED": "126",
+        "time": "13:47:32"
     },
     {
-        "humidity": 508,
-        "time": "18:38:12"
+        "DISPLAY": "",
+        "LED": "67",
+        "time": "13:47:33"
+    },
+    {
+        "DISPLAY": "",
+        "LED": "31",
+        "time": "13:47:33"
+    },
+    {
+        "DISPLAY": "",
+        "LED": "77",
+        "time": "13:47:33"
+    },
+    {
+        "DISPLAY": "",
+        "LED": "110",
+        "time": "13:47:34"
+    },
+    {
+        "DISPLAY": "",
+        "LED": "128",
+        "time": "13:48:4"
+    },
+    {
+        "DISPLAY": "",
+        "LED": "127",
+        "time": "13:48:18"
+    },
+    {
+        "DISPLAY": "",
+        "LED": "80",
+        "time": "13:48:19"
+    },
+    {
+        "DISPLAY": "",
+        "LED": "52",
+        "time": "13:48:19"
+    },
+    {
+        "DISPLAY": "",
+        "LED": "98",
+        "time": "13:48:19"
+    },
+    {
+        "DISPLAY": "",
+        "LED": "195",
+        "time": "13:48:19"
+    },
+    {
+        "DISPLAY": "",
+        "LED": "191",
+        "time": "13:48:20"
+    },
+    {
+        "DISPLAY": "",
+        "LED": "84",
+        "time": "13:48:20"
+    },
+    {
+        "DISPLAY": "",
+        "LED": "72",
+        "time": "13:48:20"
+    },
+    {
+        "DISPLAY": "",
+        "RGB-LED": {
+            "Red": "84",
+            "Green": "128",
+            "Blue": "128"
+        },
+        "time": "13:48:21"
+    },
+    {
+        "DISPLAY": "",
+        "RGB-LED": {
+            "Red": "84",
+            "Green": "110",
+            "Blue": "128"
+        },
+        "time": "13:48:22"
+    },
+    {
+        "DISPLAY": "",
+        "RGB-LED": {
+            "Red": "33",
+            "Green": "110",
+            "Blue": "128"
+        },
+        "time": "13:48:24"
+    },
+    {
+        "DISPLAY": "",
+        "RGB-LED": {
+            "Red": "33",
+            "Green": "110",
+            "Blue": "145"
+        },
+        "time": "13:48:25"
+    },
+    {
+        "DISPLAY": "",
+        "RGB-LED": {
+            "Red": "33",
+            "Green": "67",
+            "Blue": "145"
+        },
+        "time": "13:48:26"
+    },
+    {
+        "DISPLAY": "",
+        "RGB-LED": {
+            "Red": "33",
+            "Green": "83",
+            "Blue": "145"
+        },
+        "time": "13:48:27"
+    },
+    {
+        "DISPLAY": "",
+        "RGB-LED": {
+            "Red": "33",
+            "Green": "140",
+            "Blue": "145"
+        },
+        "time": "13:48:27"
+    },
+    {
+        "DISPLAY": "",
+        "RGB-LED": {
+            "Red": "123",
+            "Green": "140",
+            "Blue": "145"
+        },
+        "time": "13:48:28"
+    },
+    {
+        "DISPLAY": "",
+        "RGB-LED": {
+            "Red": "119",
+            "Green": "140",
+            "Blue": "145"
+        },
+        "time": "13:48:28"
+    },
+    {
+        "DISPLAY": "",
+        "RGB-LED": {
+            "Red": "41",
+            "Green": "140",
+            "Blue": "145"
+        },
+        "time": "13:48:29"
+    },
+    {
+        "DISPLAY": "",
+        "RGB-LED": {
+            "Red": "41",
+            "Green": "140",
+            "Blue": "76"
+        },
+        "time": "13:48:30"
+    },
+    {
+        "DISPLAY": "",
+        "RGB-LED": {
+            "Red": "41",
+            "Green": "140",
+            "Blue": "141"
+        },
+        "time": "13:48:30"
+    },
+    {
+        "DISPLAY": "",
+        "RGB-LED": {
+            "Red": "41",
+            "Green": "140",
+            "Blue": "157"
+        },
+        "time": "13:48:30"
+    },
+    {
+        "DISPLAY": "",
+        "RGB-LED": {
+            "Red": "41",
+            "Green": "132",
+            "Blue": "157"
+        },
+        "time": "13:48:31"
+    },
+    {
+        "DISPLAY": "",
+        "RGB-LED": {
+            "Red": "41",
+            "Green": "41",
+            "Blue": "157"
+        },
+        "time": "13:48:31"
+    },
+    {
+        "DISPLAY": "",
+        "LED": "128",
+        "RGB-LED": {
+            "Red": "128",
+            "Green": "128",
+            "Blue": "128"
+        },
+        "time": "13:48:53"
+    },
+    {
+        "DISPLAY": "",
+        "time": "13:49:21"
+    },
+    {
+        "DISPLAY": "",
+        "time": "13:50:23"
+    },
+    {
+        "DISPLAY": "H",
+        "time": "13:50:40"
+    },
+    {
+        "DISPLAY": "He",
+        "time": "13:50:41"
+    },
+    {
+        "DISPLAY": "Hel",
+        "time": "13:50:41"
+    },
+    {
+        "DISPLAY": "Hello",
+        "time": "13:50:41"
+    },
+    {
+        "DISPLAY": "Hello ",
+        "time": "13:50:42"
+    },
+    {
+        "DISPLAY": "Hello m",
+        "time": "13:50:42"
+    },
+    {
+        "DISPLAY": "Hello my",
+        "time": "13:50:43"
+    },
+    {
+        "DISPLAY": "Hello my ",
+        "time": "13:50:43"
+    },
+    {
+        "DISPLAY": "Hello my fr",
+        "time": "13:50:44"
+    },
+    {
+        "DISPLAY": "Hello my fri",
+        "time": "13:50:44"
+    },
+    {
+        "DISPLAY": "Hello my frie",
+        "time": "13:50:44"
+    },
+    {
+        "DISPLAY": "Hello my frien",
+        "time": "13:50:45"
+    },
+    {
+        "DISPLAY": "Hello my friend",
+        "time": "13:50:45"
+    },
+    {
+        "DISPLAY": "Hello my friend",
+        "LED": "126",
+        "time": "13:50:50"
+    },
+    {
+        "DISPLAY": "Hello my friend",
+        "LED": "57",
+        "time": "13:50:50"
+    },
+    {
+        "DISPLAY": "Hello my friend",
+        "LED": "12",
+        "time": "13:50:51"
+    },
+    {
+        "DISPLAY": "Hello my friend",
+        "LED": "95",
+        "time": "13:50:51"
+    },
+    {
+        "DISPLAY": "Hello my friend",
+        "LED": "238",
+        "time": "13:50:51"
+    },
+    {
+        "DISPLAY": "Hello my friend",
+        "LED": "255",
+        "time": "13:50:51"
+    },
+    {
+        "DISPLAY": "Hello my friend",
+        "LED": "78",
+        "time": "13:50:52"
+    },
+    {
+        "DISPLAY": "Hello my friend",
+        "LED": "40",
+        "time": "13:50:52"
+    },
+    {
+        "DISPLAY": "Hello my friend",
+        "LED": "60",
+        "time": "13:50:52"
+    },
+    {
+        "DISPLAY": "Hello my friend",
+        "LED": "155",
+        "time": "13:50:53"
+    },
+    {
+        "DISPLAY": "Hello my friend",
+        "LED": "170",
+        "time": "13:50:53"
+    },
+    {
+        "DISPLAY": "Hello my friend",
+        "LED": "160",
+        "time": "13:50:53"
+    },
+    {
+        "DISPLAY": "Hello my friend",
+        "LED": "96",
+        "time": "13:50:54"
+    },
+    {
+        "DISPLAY": "Hello my friend",
+        "LED": "52",
+        "time": "13:50:54"
+    },
+    {
+        "DISPLAY": "Hello my friend",
+        "LED": "108",
+        "time": "13:50:54"
+    },
+    {
+        "DISPLAY": "Hello my friend",
+        "LED": "176",
+        "time": "13:50:55"
+    },
+    {
+        "DISPLAY": "Hello my friend",
+        "LED": "196",
+        "time": "13:50:55"
+    },
+    {
+        "DISPLAY": "Hello my friend",
+        "LED": "79",
+        "time": "13:50:55"
+    },
+    {
+        "DISPLAY": "Hello my friend",
+        "LED": "2",
+        "time": "13:50:56"
+    },
+    {
+        "DISPLAY": "Hello my friend",
+        "LED": "7",
+        "time": "13:50:56"
+    },
+    {
+        "DISPLAY": "Hello my friend",
+        "LED": "61",
+        "time": "13:50:56"
+    },
+    {
+        "DISPLAY": "Hello my friend",
+        "LED": "123",
+        "time": "13:50:57"
+    },
+    {
+        "DISPLAY": "Hello my friend",
+        "LED": "129",
+        "time": "13:50:57"
+    },
+    {
+        "DISPLAY": "Hello my friend",
+        "LED": "223",
+        "time": "13:50:57"
+    },
+    {
+        "DISPLAY": "Hello my friend",
+        "LED": "120",
+        "time": "13:50:58"
+    },
+    {
+        "DISPLAY": "Hello my friend",
+        "LED": "49",
+        "time": "13:50:58"
+    },
+    {
+        "DISPLAY": "Hello my friend",
+        "LED": "48",
+        "time": "13:50:58"
+    },
+    {
+        "DISPLAY": "Hello my friend",
+        "LED": "60",
+        "time": "13:50:58"
+    },
+    {
+        "DISPLAY": "Hello my friend",
+        "LED": "72",
+        "time": "13:50:59"
+    },
+    {
+        "DISPLAY": "Hello my friend",
+        "LED": "82",
+        "time": "13:50:59"
+    },
+    {
+        "DISPLAY": "Hello my friend",
+        "LED": "89",
+        "time": "13:50:59"
+    },
+    {
+        "DISPLAY": "Hello my friend",
+        "LED": "102",
+        "time": "13:51:0"
+    },
+    {
+        "DISPLAY": "Hello my friend",
+        "LED": "105",
+        "time": "13:51:0"
+    },
+    {
+        "DISPLAY": "Hello my friend",
+        "LED": "108",
+        "time": "13:51:0"
+    },
+    {
+        "DISPLAY": "Hello my friend",
+        "LED": "118",
+        "time": "13:51:0"
+    },
+    {
+        "DISPLAY": "Hello my friend",
+        "LED": "133",
+        "time": "13:51:1"
+    },
+    {
+        "DISPLAY": "Hello my friend",
+        "LED": "141",
+        "time": "13:51:1"
+    },
+    {
+        "DISPLAY": "Hello my friend",
+        "LED": "137",
+        "time": "13:51:1"
+    },
+    {
+        "DISPLAY": "Hello my friend",
+        "LED": "130",
+        "time": "13:51:2"
+    },
+    {
+        "DISPLAY": "Hello my friend",
+        "LED": "119",
+        "time": "13:51:2"
+    },
+    {
+        "DISPLAY": "Hello my friend",
+        "LED": "134",
+        "time": "13:51:3"
+    },
+    {
+        "DISPLAY": "Hello my friend",
+        "LED": "143",
+        "time": "13:51:3"
+    },
+    {
+        "DISPLAY": "Hello my friend",
+        "LED": "147",
+        "time": "13:51:3"
+    },
+    {
+        "DISPLAY": "Hello my friend",
+        "LED": "154",
+        "time": "13:51:3"
+    },
+    {
+        "DISPLAY": "Hello my friend",
+        "LED": "164",
+        "time": "13:51:4"
+    },
+    {
+        "DISPLAY": "Hello my friend",
+        "LED": "174",
+        "time": "13:51:4"
+    },
+    {
+        "DISPLAY": "Hello my friend",
+        "LED": "179",
+        "time": "13:51:4"
+    },
+    {
+        "DISPLAY": "Hello my friend",
+        "LED": "194",
+        "time": "13:51:5"
+    },
+    {
+        "DISPLAY": "Hello my friend",
+        "LED": "206",
+        "time": "13:51:5"
+    },
+    {
+        "DISPLAY": "Hello my friend",
+        "LED": "207",
+        "time": "13:51:5"
+    },
+    {
+        "DISPLAY": "Hello my friend",
+        "LED": "225",
+        "time": "13:51:6"
+    },
+    {
+        "DISPLAY": "Hello my friend",
+        "LED": "237",
+        "time": "13:51:6"
+    },
+    {
+        "DISPLAY": "Hello my friend",
+        "LED": "249",
+        "time": "13:51:6"
+    },
+    {
+        "DISPLAY": "Hello my friend",
+        "LED": "255",
+        "time": "13:51:6"
+    },
+    {
+        "DISPLAY": "",
+        "LED": "128",
+        "time": "13:51:48"
+    },
+    {
+        "DISPLAY": "",
+        "RGB-LED": {
+            "Red": "128",
+            "Green": "21",
+            "Blue": "128"
+        },
+        "time": "13:51:52"
+    },
+    {
+        "DISPLAY": "",
+        "RGB-LED": {
+            "Red": "128",
+            "Green": "90",
+            "Blue": "128"
+        },
+        "time": "13:51:53"
+    },
+    {
+        "DISPLAY": "",
+        "RGB-LED": {
+            "Red": "128",
+            "Green": "213",
+            "Blue": "128"
+        },
+        "time": "13:51:53"
+    },
+    {
+        "DISPLAY": "",
+        "RGB-LED": {
+            "Red": "128",
+            "Green": "164",
+            "Blue": "128"
+        },
+        "time": "13:51:53"
+    },
+    {
+        "DISPLAY": "",
+        "RGB-LED": {
+            "Red": "128",
+            "Green": "131",
+            "Blue": "128"
+        },
+        "time": "13:51:53"
+    },
+    {
+        "DISPLAY": "",
+        "RGB-LED": {
+            "Red": "128",
+            "Green": "131",
+            "Blue": "90"
+        },
+        "time": "13:51:54"
+    },
+    {
+        "DISPLAY": "",
+        "RGB-LED": {
+            "Red": "128",
+            "Green": "131",
+            "Blue": "14"
+        },
+        "time": "13:51:54"
+    },
+    {
+        "DISPLAY": "",
+        "RGB-LED": {
+            "Red": "128",
+            "Green": "131",
+            "Blue": "86"
+        },
+        "time": "13:51:55"
+    },
+    {
+        "DISPLAY": "",
+        "RGB-LED": {
+            "Red": "128",
+            "Green": "131",
+            "Blue": "154"
+        },
+        "time": "13:51:55"
+    },
+    {
+        "DISPLAY": "",
+        "RGB-LED": {
+            "Red": "128",
+            "Green": "131",
+            "Blue": "150"
+        },
+        "time": "13:51:55"
+    },
+    {
+        "DISPLAY": "",
+        "RGB-LED": {
+            "Red": "255",
+            "Green": "131",
+            "Blue": "150"
+        },
+        "time": "13:51:57"
+    },
+    {
+        "DISPLAY": "",
+        "RGB-LED": {
+            "Red": "255",
+            "Green": "131",
+            "Blue": "0"
+        },
+        "time": "13:51:59"
+    },
+    {
+        "DISPLAY": "",
+        "RGB-LED": {
+            "Red": "128",
+            "Green": "128",
+            "Blue": "128"
+        },
+        "time": "13:52:16"
     }
 ]

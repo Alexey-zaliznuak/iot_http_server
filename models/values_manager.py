@@ -4,7 +4,6 @@ from time import perf_counter, sleep
 import json
 
 def clear(old_values, new_values, keys):
-    print("keys")
     for key in keys:
         key = key[8:]
         if key == "time": 
@@ -15,12 +14,11 @@ def clear(old_values, new_values, keys):
                 last_key = val[str(key)]
             except KeyError:
                 pass
-        try:
-            print(last_key, new_values[key])
+        try:  
             if last_key == new_values[key]:
                 new_values.pop(key)
         except KeyError as Exception:
-            print(Exception)
+            pass
 
     
     if len(new_values.items()) != 1:
@@ -39,7 +37,6 @@ class ValuesManeger():
                 with open(self.file, "r") as read_file:
                     data = json.load(read_file)
             except:        
-                print("Value maneger: created new data file")
                 with open(self.file, "w") as write_file:
                    json.dump([], write_file, indent = 4)
         else:
@@ -51,7 +48,6 @@ class ValuesManeger():
                 new_values[key[8:]] = {}
             else:
                 new_values[key[8:]] = "null"
-        print("new_values =", new_values)
         self.write(new_values)
 
     def write(self, *args):

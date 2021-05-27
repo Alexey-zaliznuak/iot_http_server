@@ -5,18 +5,19 @@ from models.special_element import special_element as special
 from models.control_elemets_storage import ControlElementStorage
 
 
-inputs_elements_keys = ["LIGHTDISPLAY", "RGB-LED",]
+inputs_elements_keys = ["LIGHTDISPLAY", "LED", "RGB-LED"]
 output_elements_keys = ["humidity","temperature"]
 
 all_elements = [
 #Put your elements here:
 
-element(name = "LIGHTDISPLAY", value_type = "range 0 255 1", put_type = "input"),
+element(name = "DISPLAY", value_type = "text", put_type = "input"),
+element(name = "LED", value_type = "range 0 255 1", put_type = "input"),
 
 special([
-    element(name = "Red", value_type = "range°С 0 255 1", put_type = "input"),
-    element(name = "Green", value_type = "range°С 0 255 1", put_type = "input"),
-    element(name = "Blue", value_type = "range°С 0 255 1", put_type = "input"),
+    element(name = "Red", value_type = "range 0 255 1", put_type = "input"),
+    element(name = "Green", value_type = "range 0 255 1", put_type = "input"),
+    element(name = "Blue", value_type = "range 0 255 1", put_type = "input"),
 ],name = "RGB-LED"),
 
 
@@ -43,4 +44,3 @@ def init(update = True):
 
 if __name__ == "__main__":
     init()
-    
